@@ -1,0 +1,3 @@
+= DDD e REST = 
+
+Com base no https://www.youtube.com/watch?v=dq7e_L4jIak[Webinar de DDD] e o https://github.com/peholmst/ddd-webinar[projeto de exemplo utilizado no Webinar], foi criado este repositório para implemetnar alguns conceitos de https://en.wikipedia.org/wiki/Representational_state_transfer[RESTful] usando https://spring.io/understanding/HATEOAS[HATEOAS]
