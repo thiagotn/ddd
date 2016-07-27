@@ -1,7 +1,7 @@
 package ldevpp.webinar.ddd.patients;
 
-import java.sql.Date;
-import java.time.LocalDate;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 
@@ -17,10 +17,10 @@ public class Patient extends AbstractPersistable<Long> {
     public Patient() {
     }
 
-    public Patient(String firstName, String lastName, LocalDate dateOfBirth) {
+    public Patient(String firstName, String lastName, Date dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dateOfBirth = Date.valueOf(dateOfBirth);
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getFirstName() {
@@ -31,8 +31,8 @@ public class Patient extends AbstractPersistable<Long> {
         return lastName;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth == null ? null : dateOfBirth.toLocalDate();
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 
     public String getFullName() {
