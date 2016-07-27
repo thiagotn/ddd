@@ -11,3 +11,13 @@ Acessar: http://localhost:8080/
 == Exemplo Implementado ==
 
 http://localhost:8080/patients
+
+== Referências == 
+
+http://martinfowler.com/articles/richardsonMaturityModel.html[Modelo de Maturidade RESTful]
+
+https://spring.io/guides/gs/rest-hateoas/[Spring REST HATEOAS]
+
+http://docs.spring.io/spring-hateoas[Docs Spring HATEOAS]
+
+https://spring.io/guides/tutorials/bookmarks/[Construindo serviços REST com Spring]
