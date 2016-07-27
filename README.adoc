@@ -13,7 +13,9 @@ Com base no https://www.youtube.com/watch?v=dq7e_L4jIak[Webinar de DDD] e o http
 
 http://localhost:8080/patients
 
-== Documentação dos serviços RESTful com http://swagger.io/[Swagger]/http://swagger.io/swagger-ui/[SwaggerUI] ==
+== Documentação dos serviços RESTful ==
+
+Usando http://swagger.io/[Swagger] e http://swagger.io/swagger-ui/[SwaggerUI]
 
 http://localhost:8080/index.html
 
