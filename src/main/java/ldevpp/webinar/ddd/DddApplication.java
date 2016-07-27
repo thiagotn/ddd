@@ -1,5 +1,7 @@
 package ldevpp.webinar.ddd;
 
+import static springfox.documentation.builders.PathSelectors.regex;
+
 import java.util.GregorianCalendar;
 
 import ldevpp.webinar.ddd.patients.Patient;
@@ -12,7 +14,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @SpringBootApplication
+@EnableSwagger2
 public class DddApplication {
 
     private static final Logger log = LoggerFactory.getLogger(DddApplication.class);
@@ -30,8 +39,29 @@ public class DddApplication {
             repository.save(new Patient("Kim", "Bauer", new GregorianCalendar(1980, 11, 10).getTime()));
             repository.save(new Patient("David", "Palmer", new GregorianCalendar(1980, 11, 10).getTime()));
             repository.save(new Patient("Michelle", "Dessler", new GregorianCalendar(1980, 11, 10).getTime()));
-
             log.info("" + repository.findAll().size() + " patients added.");
         };
+    }
+
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("")
+                .apiInfo(apiInfo())
+                .select()
+                .paths(regex("/"))
+                .build();
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("API de Gerenciamento de Consultório Odontológico")
+                .description("Mussum Ipsum, cacilds vidis litro abertis. Pra lá , depois divoltis porris, paradis. Quem num gosti di mum que vai caçá sua turmis! Per aumento de cachacis, eu reclamis. Interagi no mé, cursus quis, vehicula ac nisi.")
+                .termsOfServiceUrl("http://www.apache.org/licenses/LICENSE-2.0")
+                .contact("l-dev-pp")
+                .license("Apache License Version 2.0")
+                .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0")
+                .version("1.0")
+                .build();
     }
 }

@@ -1,12 +1,13 @@
 = DDD e REST = 
 
-Com base no https://www.youtube.com/watch?v=dq7e_L4jIak[Webinar de DDD] e o https://github.com/peholmst/ddd-webinar[projeto de exemplo utilizado no Webinar], foi criado este repositório para implemetnar alguns conceitos de https://en.wikipedia.org/wiki/Representational_state_transfer[RESTful] usando https://spring.io/understanding/HATEOAS[HATEOAS]
+Com base no https://www.youtube.com/watch?v=dq7e_L4jIak[Webinar de DDD] e o https://github.com/peholmst/ddd-webinar[projeto de exemplo utilizado no Webinar], foi criado este repositório para implementar alguns conceitos de https://en.wikipedia.org/wiki/Representational_state_transfer[RESTful] usando https://spring.io/understanding/HATEOAS[HATEOAS]
 
 == Executando ==
 
-Run as Java Application -> ldevpp.webinar.ddd.DddApplication.java
-
-Acessar: http://localhost:8080/
+1. JDK 8 and Maven instalados
+2. Clone este repositório
+3. Execute `mvn spring-boot:run` ou Run as Java Application -> ldevpp.webinar.ddd.DddApplication.java 
+4. Acesse [http://localhost:8080](http://localhost:8080) 
 
 == Exemplo Implementado ==
 
