@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Patient extends AbstractPersistable<Long> {
 
@@ -31,6 +33,7 @@ public class Patient extends AbstractPersistable<Long> {
         return lastName;
     }
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     public Date getDateOfBirth() {
         return dateOfBirth;
     }
