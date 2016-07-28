@@ -36,11 +36,11 @@ public class DddApplication {
     public CommandLineRunner loadInitialData(PatientRepository repository) {
         return (args) -> {
             log.info("Adding dummy patients...");
-            repository.save(new Patient("Jack", "Bauer", new GregorianCalendar(1980, 11, 10).getTime()));
-            repository.save(new Patient("Chloe", "O'Brian", new GregorianCalendar(1980, 11, 10).getTime()));
-            repository.save(new Patient("Kim", "Bauer", new GregorianCalendar(1980, 11, 10).getTime()));
-            repository.save(new Patient("David", "Palmer", new GregorianCalendar(1980, 11, 10).getTime()));
-            repository.save(new Patient("Michelle", "Dessler", new GregorianCalendar(1980, 11, 10).getTime()));
+            repository.save(new Patient("jackbauer@gmail.com", "Jack", "Bauer", new GregorianCalendar(1980, 11, 10).getTime()));
+            repository.save(new Patient("chloe@gmail.com", "Chloe", "O'Brian", new GregorianCalendar(1980, 11, 10).getTime()));
+            repository.save(new Patient("kim@gmail.com", "Kim", "Bauer", new GregorianCalendar(1980, 11, 10).getTime()));
+            repository.save(new Patient("david@gmail.com", "David", "Palmer", new GregorianCalendar(1980, 11, 10).getTime()));
+            repository.save(new Patient("michelledressler@gmail.com", "Michelle", "Dessler", new GregorianCalendar(1980, 11, 10).getTime()));
             log.info("" + repository.findAll().size() + " patients added.");
         };
     }
