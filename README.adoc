@@ -28,3 +28,5 @@ https://spring.io/guides/gs/rest-hateoas/[Spring REST HATEOAS]
 http://docs.spring.io/spring-hateoas[Docs Spring HATEOAS]
 
 https://spring.io/guides/tutorials/bookmarks/[Construindo serviços REST com Spring]
+
+http://www.baeldung.com/cucumber-rest-api-testing[Testando API REST com Cucumber]
