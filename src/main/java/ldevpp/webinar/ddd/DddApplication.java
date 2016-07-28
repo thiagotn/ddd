@@ -51,14 +51,14 @@ public class DddApplication {
                 .groupName("")
                 .apiInfo(apiInfo())
                 .select()
-                .paths(regex("/"))
+                .paths(regex("/*"))
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("API de Gerenciamento de Consultório Odontológico")
-                .description("Mussum Ipsum, cacilds vidis litro abertis. Pra lá , depois divoltis porris, paradis. Quem num gosti di mum que vai caçá sua turmis! Per aumento de cachacis, eu reclamis. Interagi no mé, cursus quis, vehicula ac nisi.")
+                .description("API de Gerenciamento de Consultório Odontológico, para consulta de pacientes, doutores, agendamentos e todo o ciclo de consultas de faturamento da clínica.")
                 .termsOfServiceUrl("http://www.apache.org/licenses/LICENSE-2.0")
                 .contact("l-dev-pp")
                 .license("Apache License Version 2.0")
