@@ -37,3 +37,5 @@ https://github.com/eugenp/tutorials[Diversos Exemplos]
 
 http://docs.spring.io/spring-restdocs/docs/current/reference/html5/#getting-started-build-configuration[Spring RestDocs - alternativa ao Swagger]
 
+https://github.com/rest-assured/rest-assured[Rest Assured - Testes de servicos REST usando DSL]
+
