@@ -1,6 +1,6 @@
 package ldevpp.webinar.ddd;
 
-import static springfox.documentation.builders.PathSelectors.regex;
+import static springfox.documentation.builders.PathSelectors.any;
 
 import java.util.GregorianCalendar;
 
@@ -51,7 +51,7 @@ public class DddApplication {
                 .groupName("")
                 .apiInfo(apiInfo())
                 .select()
-                .paths(regex("/*"))
+                .paths(any())
                 .build();
     }
 

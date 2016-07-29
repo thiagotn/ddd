@@ -30,7 +30,7 @@ public class PatientController {
     @Autowired
     private EntityLinks entityLinks;
 
-    @ApiOperation(value = "Lista todos os pacientes")
+    @ApiOperation(value = "Lista todos os pacientes", response = Patient.class)
     @RequestMapping(path = "/patients", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public HttpEntity<Resources<Patient>> showPatients() {
         Resources<Patient> resources = new Resources<Patient>(this.repository.findAll());

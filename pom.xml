@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>ddd</name>
-    <description>Demo project for Spring Boot</description>
+    <description>DDD e RESTful</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

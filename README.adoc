@@ -30,3 +30,8 @@ http://docs.spring.io/spring-hateoas[Docs Spring HATEOAS]
 https://spring.io/guides/tutorials/bookmarks/[Construindo serviços REST com Spring]
 
 http://www.baeldung.com/cucumber-rest-api-testing[Testando API REST com Cucumber]
+
+http://kielczewski.eu/2014/04/developing-restful-web-service-with-spring-boot/[Desenvolvendo WebServices com Spring Boot - Exemplo Hibernate Validator]
+
+https://github.com/eugenp/tutorials[Diversos Exemplos]
+

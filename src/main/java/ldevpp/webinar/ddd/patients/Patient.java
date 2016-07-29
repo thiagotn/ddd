@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Patient extends AbstractPersistable<Long> {
 
-    @Email(message = "{}")
+    @Email(message = "{email.error.message}")
     @NotBlank(message = "{notblank.error.message}") 
     private String email;
 
