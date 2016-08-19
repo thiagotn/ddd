@@ -27,6 +27,10 @@ https://spring.io/guides/gs/rest-hateoas/[Spring REST HATEOAS]
 
 http://docs.spring.io/spring-hateoas[Docs Spring HATEOAS]
 
+https://opencredo.com/hal-hypermedia-api-spring-hateoas/[HAL Hypermedia API Spring HATEOAS]
+
+https://opencredo.com/rest-api-tooling-review/[Review sobre ferramantes de documentação de API]
+
 https://spring.io/guides/tutorials/bookmarks/[Construindo serviços REST com Spring]
 
 http://www.baeldung.com/cucumber-rest-api-testing[Testando API REST com Cucumber]
