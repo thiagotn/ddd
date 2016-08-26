@@ -3,6 +3,8 @@ package ldevpp.webinar.ddd.patients;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.ExposesResourceFor;
@@ -24,8 +26,13 @@ import org.springframework.web.bind.annotation.RestController;
 @ExposesResourceFor(Patient.class)
 public class PatientController {
 
+    public static final Logger LOG = LoggerFactory.getLogger(PatientController.class);
+
     @Autowired
     private PatientRepository repository;
+
+    @Autowired
+    private PatientStatusRepository patientStatusRepository;
 
     @Autowired
     private EntityLinks entityLinks;
@@ -44,5 +51,14 @@ public class PatientController {
         Resource<Patient> resource = new Resource<Patient>(this.repository.findOne(id));
         resource.add(this.entityLinks.linkToSingleResource(Patient.class, id));
         return new ResponseEntity<Resource<Patient>>(resource, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "Consulta o status de paciente por Id")
+    @RequestMapping(path = "/patients/{id}/status", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpEntity<Resource<PatientStatus>> showPatientStatus(@PathVariable Long id) {
+        PatientStatus patientStatus = this.patientStatusRepository.findOne(1L);
+        Resource<PatientStatus> resource = new Resource<PatientStatus>(patientStatus);
+        resource.add(this.entityLinks.linkToSingleResource(PatientStatus.class, id));
+        return new ResponseEntity<Resource<PatientStatus>>(resource, HttpStatus.OK);
     }
 }

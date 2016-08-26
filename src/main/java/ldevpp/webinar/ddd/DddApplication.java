@@ -6,7 +6,14 @@ import java.util.GregorianCalendar;
 
 import ldevpp.webinar.ddd.patients.Patient;
 import ldevpp.webinar.ddd.patients.PatientRepository;
+import ldevpp.webinar.ddd.patients.PatientStatus;
+import ldevpp.webinar.ddd.patients.PatientStatusRepository;
 
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
+import org.apache.camel.RoutesBuilder;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.model.dataformat.JsonLibrary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -33,7 +40,7 @@ public class DddApplication {
     }
 
     @Bean
-    public CommandLineRunner loadInitialData(PatientRepository repository) {
+    public CommandLineRunner loadInitialData(PatientRepository repository, PatientStatusRepository patientStatusRepository) {
         return (args) -> {
             log.info("Adding dummy patients...");
             repository.save(new Patient("jackbauer@gmail.com", "Jack", "Bauer", new GregorianCalendar(1980, 11, 10).getTime()));
@@ -41,7 +48,35 @@ public class DddApplication {
             repository.save(new Patient("kim@gmail.com", "Kim", "Bauer", new GregorianCalendar(1980, 11, 10).getTime()));
             repository.save(new Patient("david@gmail.com", "David", "Palmer", new GregorianCalendar(1980, 11, 10).getTime()));
             repository.save(new Patient("michelledressler@gmail.com", "Michelle", "Dessler", new GregorianCalendar(1980, 11, 10).getTime()));
+
+            patientStatusRepository.save(new PatientStatus("Rehab", "These are long-term facilities (free-standing or a distinct unit within a hospital) that specialize in rehabilitative care for patients including, physical therapy, occupational therapy, and assistance with activities of daily living."));
+            patientStatusRepository.save(new PatientStatus("Observation", "These hospital patients are neither inpatient nor outpatient."));
+
             log.info("" + repository.findAll().size() + " patients added.");
+        };
+    }
+
+    @Bean
+    public RoutesBuilder myRouter() throws Exception {
+        return new RouteBuilder() {
+
+            @Override
+            public void configure() throws Exception {
+                from("timer://?fixedRate=true").
+                    delay(10000).
+                to("http://localhost:8080/patients/1/status").
+                    unmarshal().
+                    json(JsonLibrary.Jackson, PatientStatus.class).
+                process(new Processor() {
+                        @Override
+                        public void process(Exchange exchange) throws Exception {
+                            PatientStatus patientStatus = exchange.getIn().getBody(PatientStatus.class);
+                            log.info("[Async] Consulta de status de Paciente: {}", patientStatus);
+                            // Faz alguma coisa, como:
+                            // Chama um servico e atualiza o status...
+                        }
+                });
+            }
         };
     }
 
